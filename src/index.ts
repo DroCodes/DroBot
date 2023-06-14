@@ -1,8 +1,7 @@
-import {Client, Collection, CommandInteraction, Events, GatewayIntentBits, Interaction} from 'discord.js';
+import {Client, Collection, GatewayIntentBits} from 'discord.js';
 import "dotenv/config";
 import fs from 'node:fs';
 import path from 'node:path';
-
 
 interface DiscordClient extends Client {
 	commands: Collection<string, any>
@@ -32,7 +31,7 @@ for (const folder of commandFolders) {
 }
 
 const eventsPath = path.join(__dirname, 'events');
-const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.ts'));
 
 for (const file of eventFiles) {
 	const filePath = path.join(eventsPath, file);
