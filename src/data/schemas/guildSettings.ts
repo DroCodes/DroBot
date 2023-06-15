@@ -6,14 +6,16 @@ interface IRoleEmoji {
 }
 
 interface IGuildSettings {
-    guildId: number;
-    welcomeChannel?: number;
+    guildId: string;
+    welcomeChannel?: string;
+    welcomeMessage?: string;
     roleEmoji?: IRoleEmoji[];
 }
 
 const GuildSettingsSchema = new Schema<IGuildSettings>({
-    guildId: { type: Number, required: true },
-    welcomeChannel: { type: Number },
+    guildId: { type: String, required: true },
+    welcomeChannel: { type: String },
+    welcomeMessage: { type: String },
     roleEmoji: [{ role: String, emojiName: String }]
 });
 

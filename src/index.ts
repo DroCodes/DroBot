@@ -7,7 +7,11 @@ interface DiscordClient extends Client {
 	commands: Collection<string, any>
 }
 
-const client: DiscordClient = <DiscordClient>new Client({intents: [GatewayIntentBits.Guilds]});
+const client: DiscordClient = <DiscordClient>new Client({intents: [
+	GatewayIntentBits.Guilds,
+	GatewayIntentBits.GuildMembers,
+	GatewayIntentBits.GuildMessages
+	]});
 const token = process.env.TOKEN;
 
 client.commands = new Collection();
