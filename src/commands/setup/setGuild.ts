@@ -9,7 +9,7 @@ module.exports = {
 
     async execute(interaction: any) {
         const { guildId } = interaction;
-        const findGuild = await GuildSettings.find({guildId: guildId})
+        const findGuild = await GuildSettings.find({_id: guildId})
 
         if (findGuild.length != 0) {
             interaction.reply('guild id is already saved')
@@ -17,7 +17,7 @@ module.exports = {
         }
 
         const guildSettings = new GuildSettings({
-            guildId: guildId.toString()
+            _id: guildId.toString()
         })
 
         const saveGuildId = await guildSettings.save()

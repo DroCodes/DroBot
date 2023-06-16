@@ -1,4 +1,4 @@
-import {Client, Collection, GatewayIntentBits} from 'discord.js';
+import {Client, Collection, GatewayIntentBits, Partials} from 'discord.js';
 import "dotenv/config";
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,9 +9,13 @@ interface DiscordClient extends Client {
 
 const client: DiscordClient = <DiscordClient>new Client({intents: [
 	GatewayIntentBits.Guilds,
+	GatewayIntentBits.GuildPresences,
 	GatewayIntentBits.GuildMembers,
-	GatewayIntentBits.GuildMessages
-	]});
+	GatewayIntentBits.GuildMessages,
+	GatewayIntentBits.GuildMessageReactions,
+	GatewayIntentBits.GuildModeration
+	],
+	partials: [Partials.Message, Partials.Channel, Partials.Reaction],});
 const token = process.env.TOKEN;
 
 client.commands = new Collection();

@@ -1,4 +1,4 @@
-import {Events} from "discord.js";
+import {Events, Partials} from "discord.js";
 import database from '../data/database'
 
 module.exports = {
