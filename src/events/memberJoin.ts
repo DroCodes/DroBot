@@ -10,7 +10,7 @@ module.exports = {
         console.log('Test' + Number(guild.id))
 
         const results = await GuildSettings.findOne({
-            guildId: guild.id.toString()
+            _id: guild.id.toString()
         })
 
         if (!results) {

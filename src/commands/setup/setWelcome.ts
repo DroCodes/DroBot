@@ -25,7 +25,7 @@ module.exports = {
         }
 
         const findGuild = await GuildSettings.findOneAndUpdate({
-            guildId: guildId.toString()
+            _id: guildId.toString()
         },
             {
                 welcomeChannel: channel.id.toString(),
@@ -34,7 +34,7 @@ module.exports = {
 
         if (findGuild === null) {
             const guildSettings = new GuildSettings({
-                guildId: guildId.toString(),
+                _id: guildId.toString(),
                 welcomeChannel: channel.id.toString(),
                 welcomeMessage: welcomeMessage
             })
