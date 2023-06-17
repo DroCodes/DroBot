@@ -1,11 +1,12 @@
-import {Interaction, SlashCommandBuilder} from "discord.js";
-import mongoose from "mongoose";
+import {PermissionFlagsBits, SlashCommandBuilder} from "discord.js";
 import { GuildSettings } from '../../data/schemas/guildSettings'
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('set-guild')
-        .setDescription('Sets the guild id'),
+        .setDescription('Sets the guild id')
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+
 
     async execute(interaction: any) {
         const { guildId } = interaction;

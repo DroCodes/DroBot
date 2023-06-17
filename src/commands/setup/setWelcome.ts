@@ -1,10 +1,11 @@
-import { SlashCommandBuilder} from "discord.js";
+import {PermissionFlagsBits, SlashCommandBuilder} from "discord.js";
 import {GuildSettings} from "../../data/schemas/guildSettings";
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('set-welcome')
         .setDescription('Sets the welcome channel')
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addStringOption((option: any) =>
         option.setName('welcome-message')
             .setDescription('message to be sent in welcome channel')

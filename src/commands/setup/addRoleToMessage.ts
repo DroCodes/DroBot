@@ -1,10 +1,11 @@
-import {SlashCommandBuilder} from "discord.js";
+import {PermissionFlagsBits, SlashCommandBuilder} from "discord.js";
 import {GuildSettings} from "../../data/schemas/guildSettings";
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('add-role')
         .setDescription('Adds role to message')
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addStringOption((option: any) =>
             option.setName('message-id')
                 .setDescription('message to add the role to')
