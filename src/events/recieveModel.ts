@@ -50,5 +50,3 @@ module.exports = {
         await interaction.reply(`message sent in #${channel.id}, the message id is ${sendMessage.id}`)
     }
 }
-
-//\:6039diamondsword: \:4029swordandshieldtank: \:6406_hospital:

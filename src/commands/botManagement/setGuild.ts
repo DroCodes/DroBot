@@ -7,6 +7,8 @@ module.exports = {
         .setDescription('Sets the guild id')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
+    isDevelopment: false,
+
 
     async execute(interaction: any) {
         const { guildId } = interaction;
