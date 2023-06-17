@@ -38,19 +38,32 @@ module.exports = {
             return
         }
 
-        const emojiName = emoji.split(':')
-        console.log(emojiName[1])
-
+        let emojiName : any;
         let channel;
-
-        await getGuild.roleMessage!.forEach(e => {
-            if (e.messageId === messageId) {
-                channel = guild.channels.cache.get(e.channelId)
-                e.role!.push(role.id.toString());
-                e.emojiName!.push(emojiName[1])
-                getGuild.save()
-            }
-        })
+        if (emoji.startsWith('<')) {
+            console.log("custom emoji")
+            emojiName = emoji.split(':')
+            console.log(emojiName[1])
+            await getGuild.roleMessage!.forEach(e => {
+                if (e.messageId === messageId) {
+                    channel = guild.channels.cache.get(e.channelId)
+                    e.role!.push(role.id.toString());
+                    e.emojiName!.push(emojiName[1])
+                    getGuild.save()
+                }
+            })
+        } else {
+            emojiName = emoji
+            console.log("default emoji")
+            await getGuild.roleMessage!.forEach(e => {
+                if (e.messageId === messageId) {
+                    channel = guild.channels.cache.get(e.channelId)
+                    e.role!.push(role.id.toString());
+                    e.emojiName!.push(emojiName)
+                    getGuild.save()
+                }
+            })
+        }
 
         if (channel === null) return
 
