@@ -20,6 +20,8 @@ module.exports = {
                 .setDescription('message to add emoji to')
                 .setRequired(true)),
 
+    isDevelopment: false,
+
     async execute(interaction: any) {
         const { guildId, guild, options} = interaction;
 

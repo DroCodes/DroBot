@@ -51,4 +51,7 @@ for (const file of eventFiles) {
 	}
 }
 
-client.login(token);
+client.login(token)
+	.then((client) => {
+		console.log(`Logging in`)
+	});

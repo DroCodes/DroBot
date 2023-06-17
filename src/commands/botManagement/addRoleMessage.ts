@@ -6,6 +6,8 @@ module.exports = {
         .setDescription('adds role')
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
+    isDevelopment: false,
+
     async execute(interaction: Interaction) {
         console.log('Sending Model')
     }

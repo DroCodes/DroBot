@@ -15,6 +15,8 @@ module.exports = {
             .setDescription('Set the welcome channel')
             .setRequired(true)),
 
+    isDevelopment: false,
+
     async execute(interaction: any) {
         const { guildId } = interaction
         const channel = interaction.options.getChannel('welcome-channel')
