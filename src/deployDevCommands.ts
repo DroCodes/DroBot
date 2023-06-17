@@ -1,5 +1,3 @@
-import * as process from "process";
-
 const { REST, Routes } = require('discord.js');
 const { clientId, guildId} = require('../config.json');
 const fs = require('node:fs');
